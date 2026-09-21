@@ -32,7 +32,7 @@ and [the storage format](references/layout.md) before creating or changing a ban
    transport blockers. A changed/excluded item or modified export requires a fresh
    draft; never repair a digest to hide a mismatch. Do not upload the bank wholesale.
 6. Only when the user asks to move into intake, hand the selected verified draft to
-   the governed intake skill (`intake` in Codex or `governed-intake-agent` elsewhere).
+   the prepare skill (`intake-prepare` in Codex or `governed-intake-prepare` elsewhere).
    Retrieve the receiving contract and current permissions first. Keep banked
    material as supplied/unverified content; approved evidence must be revalidated
    by the server. Preserve the existing human field/final confirmation flow.

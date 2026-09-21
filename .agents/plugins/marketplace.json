@@ -1,7 +1,7 @@
 {
   "name": "glassbox-bio-intake",
   "interface": {
-    "displayName": "Glassbox Bio Intake"
+    "displayName": "Glassbox Bio Governed Promotion Intake"
   },
   "plugins": [
     {

@@ -1,25 +1,33 @@
 {
   "name": "governed-scientific-intake",
-  "version": "0.1.0+codex.20260921103717170360",
-  "description": "Save scientific work locally and prepare governed handoffs through a configurable authenticated MCP service.",
+  "version": "0.2.0+codex.20260921",
+  "description": "Bank selected work, prepare receiver-defined promotion packets, and submit saved sessions through authenticated human review.",
   "author": {
-    "name": "Governed Scientific Intake"
+    "name": "Glassbox Bio"
   },
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
-    "displayName": "Governed Scientific Intake",
-    "shortDescription": "Save work and prepare governed handoffs.",
-    "longDescription": "Bank selected work for later, then use a selected governed-intake connection to prepare a provenance-preserving scientific handoff for explicit human approval.",
-    "developerName": "Governed Scientific Intake",
+    "displayName": "Glassbox Bio Governed Promotion Intake",
+    "shortDescription": "Bank work, prepare a promotion packet, then submit it with human confirmation.",
+    "longDescription": "Save selected evidence locally, prepare a receiver-defined scientific promotion draft through authenticated MCP, and submit a saved session only after explicit human review.",
+    "developerName": "Glassbox Bio",
     "category": "Productivity",
     "capabilities": [
       "authenticated-local-mcp",
       "governed-intake"
     ],
     "defaultPrompt": [
-      "Prepare this scientific work for a governed intake handoff.",
-      "Save this work for a future promotion packet."
-    ]
-  }
+      "Save this work in my local promotion bank for later.",
+      "Prepare a governed promotion packet for this receiver and stop at a saved draft.",
+      "Submit this prepared promotion session after showing me its current review."
+    ],
+    "brandColor": "#2288DC",
+    "composerIcon": "./assets/glassbox-bio-mark.png",
+    "logo": "./assets/glassbox-bio-mark.png",
+    "logoDark": "./assets/glassbox-bio-mark.png"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/glassbox-bio-code-lab/governed-scientific-intake-codex-plugin",
+  "homepage": "https://github.com/glassbox-bio-code-lab/governed-scientific-intake-codex-plugin"
 }

@@ -5,6 +5,10 @@ description: Use the Governed Scientific Intake Codex plugin to retrieve a recei
 
 # Governed Scientific Intake for Codex
 
+This is the compatibility entrypoint for older prompts. For new work use
+`$intake-prepare` to make or revise a draft and `$intake-submit` only when the
+user asks to send an existing session. Selection of a skill is not confirmation.
+
 Read [the shared workflow](references/workflow.md), [tool contract](references/tool_contract.md),
 and [agent directives](references/AGENTS.md) before preparing or sending a packet.
 These preserve the universal skill's provenance, accountability, independent-review

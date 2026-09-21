@@ -1,4 +1,7 @@
 interface:
-  display_name: "Intake Bank"
+  display_name: "Glassbox Bio Promotion Bank"
   short_description: "Save work for a future promotion packet"
-  default_prompt: "Use $intake-bank to save this selected work for a future promotion packet without submitting it."
+  icon_small: "./assets/glassbox-bio-mark.png"
+  icon_large: "./assets/glassbox-bio-mark.png"
+  brand_color: "#2288DC"
+  default_prompt: "Use $intake-bank to save this selected work for later without submitting it."

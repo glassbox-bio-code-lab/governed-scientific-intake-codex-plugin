@@ -1,8 +1,10 @@
-# Governed Scientific Intake for Codex
+# Glassbox Bio Governed Promotion Intake for Codex
 
 This public repository contains one Codex plugin. It connects Codex app or CLI
 to an existing Governed Scientific Intake MCP server and includes a local
-`intake-bank` skill for saving selected material before promotion. The backend,
+`intake-bank` skill for saving selected material before promotion.
+`intake-prepare` and `intake-submit` are separate callable skills so preparation
+stops at a saved draft and sending starts from a reviewed existing session. The backend,
 accounts, and scientific data are not part of this repository.
 Its tool reference and agent instructions intentionally describe the public
 integration workflow. Keep receiver-specific contracts, real evidence, packet
@@ -61,6 +63,8 @@ review; it never supplies its own approval.
 
 ## License
 
-The files in this repository are available under the [MIT License](LICENSE).
+The code and documentation in this repository are available under the [MIT License](LICENSE).
+The Glassbox Bio name and logo are excluded from the MIT grant and remain brand
+assets of Glassbox Bio; their inclusion does not grant trademark or endorsement rights.
 The separate backend service, user data, and deployment credentials are not
 included in this repository or licensed by this file.

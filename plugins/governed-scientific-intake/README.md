@@ -1,4 +1,4 @@
-# Governed Scientific Intake Codex plugin
+# Glassbox Bio Governed Promotion Intake Codex plugin
 
 Prepare governed scientific handoffs using native authenticated HTTP MCP. Named
 connection profiles configure the MCP server, login API and web review application
@@ -47,7 +47,7 @@ URLs cannot contain credentials, query strings, fragments or encoded path segmen
 
 Profiles live in `~/.config/governed-scientific-intake/connections.json`, outside
 plugin updates. The package contains only the selected nonsecret `connection.json`,
-MCP configuration and `skills/intake/references/ACTIVE_CONNECTION.md`. Reapplying
+MCP configuration and selected connection notes in the prepare, submit and legacy skills. Reapplying
 `use NAME` after a plugin update restores that saved profile to the new package.
 There is no custom native Codex settings panel.
 
@@ -97,7 +97,10 @@ The service operator must provide running API, MCP and web-review addresses. The
 MCP process is separate from the API and must use the same backend configuration.
 Connection setup configures the client; it does not deploy servers.
 
-The skill prepares durable sessions, retains provenance and shows the exact review.
+`$intake-prepare` prepares a durable session and stops at a saved draft.
+`$intake-submit` starts from that session, shows the current review and proceeds
+through human confirmation or authenticated browser review. `$intake-bank` saves
+selected material locally for later preparation.
 The optional `request_intake_confirmation` tool requires actual human-facing MCP
 forms; the agent cannot answer them. Otherwise use authenticated browser review.
 A decline/cancel stops the attempt. `needs_evidence` is saved, not sent. A signed
@@ -105,9 +108,10 @@ receipt is not proof of scientific correctness or completed verification.
 
 ## Shared skill and Codex adapter
 
-The separately published `governed-intake-agent` skill supplies the shared
-workflow, agent directives and tool contract bundled in this plugin. Each
-platform has separate entrypoints, metadata and connection instructions.
+The separately published `governed-intake-prepare` and `governed-intake-submit`
+skills provide portable phase-specific entrypoints. The older
+`governed-intake-agent` remains for compatibility. Each platform has separate
+entrypoints, metadata and connection instructions.
 
 ## Save work before promotion
 
