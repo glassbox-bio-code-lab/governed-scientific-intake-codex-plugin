@@ -1,0 +1,4 @@
+interface:
+  display_name: "Governed Scientific Intake"
+  short_description: "Prepare and submit governed handoffs"
+  default_prompt: "Use $intake to prepare this scientific handoff and request my approval before sending."

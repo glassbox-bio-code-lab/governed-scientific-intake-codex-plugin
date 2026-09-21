@@ -1,0 +1,25 @@
+{
+  "name": "governed-scientific-intake",
+  "version": "0.1.0+codex.20260921103717170360",
+  "description": "Save scientific work locally and prepare governed handoffs through a configurable authenticated MCP service.",
+  "author": {
+    "name": "Governed Scientific Intake"
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Governed Scientific Intake",
+    "shortDescription": "Save work and prepare governed handoffs.",
+    "longDescription": "Bank selected work for later, then use a selected governed-intake connection to prepare a provenance-preserving scientific handoff for explicit human approval.",
+    "developerName": "Governed Scientific Intake",
+    "category": "Productivity",
+    "capabilities": [
+      "authenticated-local-mcp",
+      "governed-intake"
+    ],
+    "defaultPrompt": [
+      "Prepare this scientific work for a governed intake handoff.",
+      "Save this work for a future promotion packet."
+    ]
+  }
+}

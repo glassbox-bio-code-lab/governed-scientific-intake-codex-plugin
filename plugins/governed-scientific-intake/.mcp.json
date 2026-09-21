@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "governed-scientific-intake": {
+      "type": "http",
+      "url": "http://127.0.0.1:8140/mcp",
+      "bearer_token_env_var": "GSI_MCP_TOKEN_00AAC7F1E9C866E55F2CA0A4C3734F5485B6FC8AAA4C22ECD40DF1DBDFB1F524",
+      "tool_timeout_sec": 300
+    }
+  }
+}

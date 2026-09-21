@@ -1,0 +1,4 @@
+interface:
+  display_name: "Intake Bank"
+  short_description: "Save work for a future promotion packet"
+  default_prompt: "Use $intake-bank to save this selected work for a future promotion packet without submitting it."

@@ -1,0 +1,20 @@
+{
+  "name": "glassbox-bio-intake",
+  "interface": {
+    "displayName": "Glassbox Bio Intake"
+  },
+  "plugins": [
+    {
+      "name": "governed-scientific-intake",
+      "source": {
+        "source": "local",
+        "path": "./plugins/governed-scientific-intake"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

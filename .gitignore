@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.env
+.env.*
+*.token
+.intake-bank/
+.local/
+credentials/
+*.sqlite*
+*.pem
+*.key

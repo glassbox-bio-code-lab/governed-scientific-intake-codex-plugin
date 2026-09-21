@@ -1,0 +1,5 @@
+# Credentials belong only in the protected user configuration directory.
+.env
+*.token
+credentials*
+__pycache__/
