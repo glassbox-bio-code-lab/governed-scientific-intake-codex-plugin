@@ -1,6 +1,6 @@
 {
   "name": "governed-scientific-intake",
-  "version": "0.2.0+codex.20260921",
+  "version": "0.2.0+codex.20260921150523",
   "description": "Bank selected work, prepare receiver-defined promotion packets, and submit saved sessions through authenticated human review.",
   "author": {
     "name": "Glassbox Bio"

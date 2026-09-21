@@ -254,6 +254,10 @@ def write_credential(profile: dict, token: str) -> None:
     write_private(token_path(profile), json.dumps({'connection_id': identity(profile), 'token': token}))
 
 
+class MissingCredentialError(ValueError):
+    """The selected connection has no saved login credential."""
+
+
 def launch_environment(package: Path) -> dict[str, str]:
     profile = package_profile(package)
     if load_state()['active'] != profile:
@@ -261,7 +265,7 @@ def launch_environment(package: Path) -> dict[str, str]:
     try:
         saved = json_object(read_private(token_path(profile)))
     except FileNotFoundError as error:
-        raise ValueError('No credential for this connection; run scripts/login.py first.') from error
+        raise MissingCredentialError('No credential for this connection; run scripts/login.py first.') from error
     if not isinstance(saved, dict) or saved.get('connection_id') != identity(profile):
         raise ValueError('Credential connection binding mismatch; login again.')
     validate_token(saved.get('token'))
