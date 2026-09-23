@@ -5,6 +5,17 @@ description: Save specified work, documents, evidence, notes or results in a loc
 
 # Intake Bank
 
+For a request to bank work in Glassbox, call `bank_work` once with the project,
+title, selected verbatim content, known source references and a stable idempotency
+key. This uploads the selected material to the authenticated Glassbox account;
+report the returned item ID. It remains supplied, unverified material. Saving
+never submits or promotes anything. Use this path for server-banked promotion.
+
+For explicitly local/offline saving, use the filesystem workflow below. A local
+bank is separate from the Glassbox server bank; never claim the server can read it.
+
+## Local filesystem bank
+
 Use this skill to preserve material the user explicitly selects before they are ready
 to promote it. It provides local filesystem operations through `scripts/bank.py`;
 no MCP connection, login or network is needed. Read [the workflow and commands](references/workflow.md)
@@ -27,8 +38,10 @@ and [the storage format](references/layout.md) before creating or changing a ban
 4. Report the absolute bank path, returned item IDs, what was saved, and any failure.
    A successful save is a local draft, not an upload or promotion. These files are
    plaintext, not encrypted, cloud-synced or guaranteed to survive workspace deletion.
-5. When asked to prepare a packet, list candidates and use the user's explicit
-   selection/scope. Run `prepare` with those IDs, then `verify-packet`. Report all
+5. When asked to prepare a packet, use the already selected item IDs and scope.
+   List candidates only if selection is unresolved. Run `prepare` once with those
+   IDs, then `verify-packet` once. If an existing selected packet is unchanged,
+   verify and reuse it; do not rebuild it or verify the entire bank. Report all
    transport blockers. A changed/excluded item or modified export requires a fresh
    draft; never repair a digest to hide a mismatch. Do not upload the bank wholesale.
 6. Only when the user asks to move into intake, hand the selected verified draft to

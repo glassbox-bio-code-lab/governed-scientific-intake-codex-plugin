@@ -1,25 +1,31 @@
 ---
 name: intake-prepare
-description: Use the Glassbox Bio Codex plugin to retrieve a receiving contract and prepare or revise a durable scientific promotion draft. Stop before human confirmation or submission.
+description: Prepare or revise a durable Glassbox promotion draft through business-level MCP actions.
 ---
 
-# Glassbox Bio Governed Promotion Intake — Prepare
+# Prepare a promotion
 
-Read [the selected connection](references/ACTIVE_CONNECTION.md) and use this
-plugin's authenticated HTTP MCP tools. Follow [the shared workflow](references/workflow.md),
-[tool contract](references/tool_contract.md), [agent directives](references/AGENTS.md),
-and [Codex integration notes](references/SKILLS.md). Read [connection guidance](references/CONNECTION.md)
-when configuring or diagnosing access. Discover actual tools and contracts.
+Call `prepare_promotion` once with the requested receiver, current project,
+selected conversation text as `source_context`, and a fresh idempotency key.
+Glassbox retrieves requirements and banked material, maps fields, retrieves
+approved evidence and saves the draft internally. Pass `banked_item_ids` to
+select saved material, or `[]` when only the supplied conversation is intended.
+The server cannot read a conversation from the literal words “current conversation”.
 
-Retrieve the effective receiver contract and authorized project, then prepare or
-revise a durable session with an idempotency key. Preserve the user's original
-material, provenance, session ID, revision, proposal hash, review URL and all
-unresolved questions. If using `intake-bank`, verify the selected local draft and
-treat it as unverified source material. Present the exact server proposal with
-blockers, source statuses and required reviews.
+Present the returned summary, actual questions and Glassbox `review_url`.
+Resolve relative URLs against the web app base in
+[the selected connection](references/ACTIVE_CONNECTION.md).
+For the user's answers or corrections, call `review_promotion` on that same
+`draft_id` with `answers`, `expected_revision` and a new idempotency key.
+Reuse the same key and arguments after an uncertain result. Read-only review
+needs only `draft_id`; full provenance and acceptance live in Glassbox.
 
-This phase stops at a saved draft. Do not invoke `request_intake_confirmation`,
-`submit_intake_submission_for_review`, sender decision tools or HTTP confirmation.
-If the user wants to send the prepared session, use `$intake-submit` with that same
-session. Never place a password, token or `user_id` in arguments, chat or saved
-content. Do not register a duplicate MCP server or substitute legacy stdio.
+This phase stops at a saved draft. Do not invoke `submit_promotion` unless the
+user has asked to send. If sending was already requested, continue to the submit
+skill on the same draft. Tool results distinguish saved, failed and submitted.
+Keep credentials in the configured transport, outside model-visible arguments.
+
+If only legacy primitives are advertised, this connection uses the advanced
+profile. Consult [the advanced tool contract](references/tool_contract.md) only
+for that compatibility case. Do not invoke `request_intake_confirmation` during
+preparation. Connection troubleshooting is needed only after a connection error.

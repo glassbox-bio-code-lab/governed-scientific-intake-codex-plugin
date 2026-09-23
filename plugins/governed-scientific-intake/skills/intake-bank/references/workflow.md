@@ -100,9 +100,14 @@ authorized; do not assume this helper performs uploads.
 
 Verify the packet immediately before using it. `mcp-input.json` contains material
 for preparation (`title`, `submission.text`, `attachments`), not a completed tool
-request or authorization to submit. Resolve the receiving contract and authorized
-server project; assign a new start idempotency key when creating the intake. Never
-copy the local project label into a server project ID without resolving it.
+request or authorization to submit. Retrieve the receiving contract through MCP;
+assign a new start idempotency key when creating the intake.
+Use the current work's project context when invoking MCP and let the server
+validate it. There is no project-discovery step: do not enumerate cases, scan
+files or open a browser to establish a project. Local context is not authority.
+For already selected items use prepare once, verify-packet once, then read its
+mcp-input.json; do not run separate whole-bank verification or rebuild unchanged
+exports. Let the prepare skill execute the handoff without another discovery pass.
 
 Keep source statements and generated interpretations separate. Do not turn bank
 categories/statuses into `fieldValues`, confirmed decisions, approved-source evidence

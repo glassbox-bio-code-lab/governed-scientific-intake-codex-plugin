@@ -3,7 +3,7 @@
     "governed-scientific-intake": {
       "type": "http",
       "url": "http://127.0.0.1:8140/mcp",
-      "bearer_token_env_var": "GSI_MCP_TOKEN_00AAC7F1E9C866E55F2CA0A4C3734F5485B6FC8AAA4C22ECD40DF1DBDFB1F524",
+      "http_headers_helper": "python3 /opt/glassbox-bio-intake-unconfigured/auth_headers.py 00aac7f1e9c866e55f2ca0a4c3734f5485b6fc8aaa4c22ecd40df1dbdfb1f524",
       "tool_timeout_sec": 300
     }
   }

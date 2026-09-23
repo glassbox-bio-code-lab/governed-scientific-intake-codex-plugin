@@ -55,7 +55,7 @@ def activate(profile: dict, state: dict) -> None:
     manifest = json_object(manifest_path.read_text())
     base = manifest['version'].split('+')[0]
     manifest['version'] = base + '+codex.' + datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S%f')
-    generated = snapshot_files(profile)
+    generated = snapshot_files(profile, str(source / 'scripts/auth_headers.py'))
     generated['.codex-plugin/plugin.json'] = json.dumps(manifest, indent=2) + '\n'
     before = {}
     for relative in generated:
@@ -92,7 +92,7 @@ def activate(profile: dict, state: dict) -> None:
         # Launch-time binding checks reject it unless it matches the active state.
         raise
     print(f'Activated {profile["name"]}; installed {manifest["version"]}.')
-    print('Fully quit Codex, then relaunch through scripts/with-token.sh. Start a new task.')
+    print('Reconnect the plugin or restart the app normally, then start a new task. No special launcher is required.')
     print('If this connection has no credential yet, run scripts/login.py in your terminal first.')
 
 

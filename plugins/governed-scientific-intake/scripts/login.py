@@ -96,7 +96,7 @@ def main() -> int:
         print('Login setup or private credential storage failed. Check the selected connection and run as your normal user, without sudo.', file=sys.stderr)
         return 1
     print('Saved a private credential bound to this profile and its exact endpoints.')
-    print('Fully quit Codex and relaunch through scripts/with-token.sh.')
+    print('Login saved. Reconnect the plugin or restart the app normally. No special launcher is required.')
     return 0
 
 
